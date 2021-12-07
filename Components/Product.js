@@ -8,6 +8,8 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import AddToCartBtn from "../Layout/AddToCartBtn";
 
 function Product({ id, category, image, title, description, price, rating }) {
+  let productRating = Math.ceil(rating);
+
   const generateStars = (stars) => {
     if (stars > 5 || stars < 0) {
       return ["An error occured !"];
@@ -42,9 +44,9 @@ function Product({ id, category, image, title, description, price, rating }) {
 
       <h4 className={styles.title}>{title}</h4>
 
-      {rating === 5 && <p className={styles.topp}>best seller #1</p>}
+      {productRating === 5 && <p className={styles.topp}>best seller #1</p>}
 
-      <div className={styles.rating}>{generateStars(rating)}</div>
+      <div className={styles.rating}>{generateStars(productRating)}</div>
 
       <p className={styles.price}>$ {price}</p>
 

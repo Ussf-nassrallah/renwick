@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../context/GlobalState";
 import Product from "./Product";
-
-import "../styles/Components/ProductList.module.scss";
+import styles from "../styles/Components/ProductList.module.scss";
 
 const ProductList = () => {
   const { products } = useContext(ProductContext);
@@ -36,9 +35,9 @@ const ProductList = () => {
     let uniqueCategories = [...new Set(categories)];
 
     let output = uniqueCategories.map((category, index) => (
-      <div key={index}>
+      <div key={index} className={styles.products}>
         <h2>{category}</h2>
-        {filterProducts(category)}
+        <div className={styles.grid}>{filterProducts(category)}</div>
       </div>
     ));
 
