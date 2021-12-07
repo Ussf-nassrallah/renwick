@@ -1,0 +1,14 @@
+@import "../Helpers/helpers";
+
+.addToCartBtn {
+  @include btn;
+
+  background-color: #111;
+  color: $white-clr;
+  width: 100%;
+
+  padding: 0.8rem !important;
+
+  display: flex;
+  justify-content: center;
+}

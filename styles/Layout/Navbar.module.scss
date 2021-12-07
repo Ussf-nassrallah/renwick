@@ -1,0 +1,36 @@
+@import "../Helpers/helpers";
+
+.nav {
+  padding: 1.3rem 0;
+  background-color: $secondary-clr;
+
+  &Container {
+    @include container;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &Links {
+    text-transform: uppercase;
+    font-weight: $fw-light;
+  }
+
+  &Icons {
+    > li {
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+  }
+
+  &Links,
+  &Icons {
+    display: flex;
+    align-items: center;
+
+    > * + * {
+      margin-left: 2rem;
+    }
+  }
+}

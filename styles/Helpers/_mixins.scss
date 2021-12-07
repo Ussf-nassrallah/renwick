@@ -1,0 +1,17 @@
+@mixin container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+@mixin btn {
+  all: unset;
+  padding: 0.8rem 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+}

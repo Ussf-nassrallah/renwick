@@ -1,10 +1,14 @@
 import { ProductProvider } from "../context/GlobalState";
-import "../styles/globals.css";
+import Layout from "./../Layout/Layout";
+
+import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ProductProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </ProductProvider>
   );
 }
