@@ -17,6 +17,7 @@ function singleProduct({ product }) {
     if (stars > 5 || stars < 0) {
       return ["An error occured !"];
     }
+
     let output = [];
 
     for (let i = 0; i < stars; i++) {
