@@ -29,8 +29,15 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 cart: state.cart.map((item) =>
                     item.id === action.payload.id
-                        ? { ...item, qty: +action.payload.qty }
+                        ? { ...item, qty: +action.payload.qty + 1 }
                         : item
+                ),
+            };
+        case actionTypes.REMOVE_FROM_CART:
+            return {
+                ...state,
+                cart: state.cart.filter(
+                    (product) => product.id !== action.payload.id
                 ),
             };
         default:

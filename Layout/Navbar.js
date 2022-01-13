@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 // icons
 import { AiOutlineShopping, AiOutlineSearch } from "react-icons/ai";
@@ -8,39 +9,42 @@ import { AiOutlineShopping, AiOutlineSearch } from "react-icons/ai";
 import styles from "../styles/Layout/Navbar.module.scss";
 
 export default function Navbar() {
-  const navLinks = [
-    { id: 1, text: "shop" },
-    { id: 2, text: "gifts" },
-    { id: 3, text: "best sellers" },
-    { id: 4, text: "news" },
-    { id: 5, text: "packs" },
-  ];
+    const cartItems = useSelector((state) => state.cart);
 
-  return (
-    <nav className={styles.nav}>
-      <div className={styles.navContainer}>
-        <Link href="/">
-          <div className={styles.navLogo}>STORE</div>
-        </Link>
+    const navLinks = [
+        { id: 1, text: "shop" },
+        { id: 2, text: "gifts" },
+        { id: 3, text: "best sellers" },
+        { id: 4, text: "news" },
+        { id: 5, text: "packs" },
+    ];
 
-        <ul className={styles.navLinks}>
-          {navLinks.map((navLink) => (
-            <li key={navLink.id}>{navLink.text}</li>
-          ))}
-        </ul>
+    return (
+        <nav className={styles.nav}>
+            <div className={styles.navContainer}>
+                <Link href="/">
+                    <div className={styles.navLogo}>STORE</div>
+                </Link>
 
-        <ul className={styles.navIcons}>
-          <Link href="/Checkout">
-            <li>
-              <AiOutlineShopping />
-            </li>
-          </Link>
+                <ul className={styles.navLinks}>
+                    {navLinks.map((navLink) => (
+                        <li key={navLink.id}>{navLink.text}</li>
+                    ))}
+                </ul>
 
-          <li>
-            <AiOutlineSearch />
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
+                <ul className={styles.navIcons}>
+                    <Link href="/Checkout">
+                        <li>
+                            <AiOutlineShopping />
+                            <span>{cartItems.length}</span>
+                        </li>
+                    </Link>
+
+                    <li>
+                        <AiOutlineSearch />
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    );
 }

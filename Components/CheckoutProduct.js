@@ -9,11 +9,22 @@ const CheckoutProduct = ({ product }) => {
     const dispatch = useDispatch();
 
     const onChangeHandler = (e) => {
-        let value = e.target.value;
-        setInput(value);
+        setInput(e.target.value);
         dispatch({
             type: actioneTypes.ADJUST_ITEM_QTY,
-            payload: value,
+            payload: {
+                id: product.id,
+                qty: input,
+            },
+        });
+    };
+
+    const removeFromCart = () => {
+        dispatch({
+            type: actioneTypes.REMOVE_FROM_CART,
+            payload: {
+                id: product.id,
+            },
         });
     };
 
@@ -30,7 +41,7 @@ const CheckoutProduct = ({ product }) => {
                 <div className={styles.checkoutProductInfo}>
                     <h4 className={styles.title}>{product.title}</h4>
                     <p className={styles.category}>{product.category}</p>
-                    <p>remove</p>
+                    <p onClick={removeFromCart}>remove</p>
                 </div>
             </td>
 
