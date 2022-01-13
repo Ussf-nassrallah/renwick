@@ -1,18 +1,18 @@
-import { ProductProvider } from "../context/GlobalState";
+// import { ProductProvider } from "../context/GlobalState";
 import { Provider } from "react-redux";
-import store from "../redux/store";
+import store from "../Store/store";
 import Layout from "./../Layout/Layout";
 import "../styles/globals.scss";
 
 function MyApp({ Component, pageProps }) {
   return (
+    // <ProductProvider>
     <Provider store={store}>
-      <ProductProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ProductProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
+    // </ProductProvider>
   );
 }
 

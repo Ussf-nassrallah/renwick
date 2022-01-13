@@ -19,9 +19,9 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.navContainer}>
-        <div className={styles.navLogo}>
-          <Link href="/">STORE</Link>
-        </div>
+        <Link href="/">
+          <div className={styles.navLogo}>STORE</div>
+        </Link>
 
         <ul className={styles.navLinks}>
           {navLinks.map((navLink) => (
@@ -30,11 +30,11 @@ export default function Navbar() {
         </ul>
 
         <ul className={styles.navIcons}>
-          <li>
-            <Link href="/Checkout">
+          <Link href="/Checkout">
+            <li>
               <AiOutlineShopping />
-            </Link>
-          </li>
+            </li>
+          </Link>
 
           <li>
             <AiOutlineSearch />

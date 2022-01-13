@@ -7,52 +7,54 @@ import styles from "../styles/Components/Product.module.scss";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import AddToCartBtn from "../Layout/AddToCartBtn";
 
-function Product({ id, category, image, title, description, price, rating }) {
-  let productRating = Math.ceil(rating);
+export default function Product({ props }) {
+    const { id, category, image, title, description, price, rating } = props;
 
-  const generateStars = (stars) => {
-    if (stars > 5 || stars < 0) {
-      return ["An error occured !"];
-    }
+    let productRating = Math.ceil(rating.rate);
 
-    let output = [];
+    const generateStars = (stars) => {
+        if (stars > 5 || stars < 0) {
+            return ["An error occured !"];
+        }
 
-    for (let i = 0; i < stars; i++) {
-      output.push(<AiFillStar className={styles.icon} />);
-    }
+        let output = [];
 
-    for (let i = stars; i < 5; i++) {
-      output.push(<AiOutlineStar className={styles.icon} />);
-    }
+        for (let i = 0; i < stars; i++) {
+            output.push(<AiFillStar className={styles.icon} />);
+        }
 
-    return output;
-  };
+        for (let i = stars; i < 5; i++) {
+            output.push(<AiOutlineStar className={styles.icon} />);
+        }
 
-  return (
-    <div className={styles.product}>
-      <p className={styles.category}>{category}</p>
+        return output;
+    };
 
-      <Link href="/product/[id]" as={`/product/${id}`}>
-        <Image
-          src={image}
-          objectFit="contain"
-          width={200}
-          height={200}
-          className={styles.img}
-        />
-      </Link>
+    return (
+        <div className={styles.product}>
+            <p className={styles.category}>{category}</p>
 
-      <h4 className={styles.title}>{title}</h4>
+            <Link href="/product/[id]" as={`/product/${id}`}>
+                <Image
+                    src={image}
+                    objectFit="contain"
+                    width={200}
+                    height={200}
+                    className={styles.img}
+                />
+            </Link>
 
-      {productRating === 5 && <p className={styles.topp}>best seller #1</p>}
+            <h4 className={styles.title}>{title}</h4>
 
-      <div className={styles.rating}>{generateStars(productRating)}</div>
+            {productRating === 5 && (
+                <p className={styles.topp}>best seller #1</p>
+            )}
 
-      <p className={styles.price}>$ {price}</p>
+            <div className={styles.rating}>{generateStars(productRating)}</div>
 
-      <AddToCartBtn />
-    </div>
-  );
+            <p className={styles.price}>$ {price}</p>
+
+            <AddToCartBtn props={props} />
+        </div>
+    );
 }
-
-export default Product;

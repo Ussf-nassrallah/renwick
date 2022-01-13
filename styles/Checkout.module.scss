@@ -1,53 +1,119 @@
 @import "./Helpers/helpers";
 
 .shop {
-  background-color: $light-clr;
+    // background-color: $light-clr;
 
-  .flex {
-    @include container;
+    .flex {
+        @include container;
 
-    display: flex;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem !important;
+        display: flex;
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
 
-    .shop {
-      &Products {
-        flex: 1;
-        background-color: lightblue;
-      }
+        .shop {
+            &Products {
+                h3 {
+                    border-bottom: 1px solid #ccc;
+                    padding: 1rem 0;
+                    font-size: $text-xl;
+                    font-weight: $fw-bold;
+                }
 
-      &Cart {
-        background-color: $white-clr;
-        padding: 1rem;
-        width: 30%;
-        margin-left: 2rem;
-        border: 1px solid lightgray;
+                flex: 1;
+                background-color: $white-clr;
 
-        h3 {
-          font-size: $text-xl;
-          font-weight: $fw-regular;
-          padding: 1rem 0;
+                &Table {
+                    width: 100%;
+                    border-collapse: collapse;
+
+                    .checkoutProduct {
+                        display: flex;
+                        padding: 1rem 0;
+                        width: 98%;
+
+                        img {
+                            width: 100% !important;
+                        }
+
+                        &Info {
+                            margin-left: 1rem;
+
+                            .title {
+                                font-size: $text-base;
+                            }
+
+                            .category {
+                                margin: 0.5rem 0;
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        text-align: left;
+
+                        th {
+                            padding-top: 16px;
+                            padding-bottom: 16px;
+                            text-align: left;
+                            text-transform: uppercase;
+                            font-size: $text-base;
+                            font-weight: $fw-medium;
+                            border-bottom: 1px solid #ccc;
+                        }
+
+                        tr {
+                            border-bottom: 1px solid #ccc;
+
+                            td:not(:first-child) {
+                                width: calc(50% / 3);
+                            }
+
+                            td {
+                                input {
+                                    width: 70% !important;
+                                    all: initial;
+                                    border: 1px solid #ccc;
+                                    padding: 0.3rem;
+                                    border-radius: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &Cart {
+                background-color: $white-clr;
+                padding: 1rem;
+                width: 27%;
+                margin-left: 1rem;
+
+                h3 {
+                    font-size: $text-xl;
+                    font-weight: $fw-regular;
+                    padding: 1rem 0;
+                }
+
+                &Row {
+                    opacity: 0.7;
+                }
+
+                &TotalRow {
+                    font-weight: $fw-bold;
+                    border-top: 1px solid lightgray;
+                    padding-top: 1rem;
+                }
+
+                &Row,
+                &TotalRow {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-bottom: 1rem;
+                    text-transform: capitalize;
+                }
+            }
         }
-
-        &Row {
-          opacity: 0.7;
-        }
-
-        &TotalRow {
-          font-weight: $fw-bold;
-          border-top: 1px solid lightgray;
-          padding-top: 1rem;
-        }
-
-        &Row,
-        &TotalRow {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding-bottom: 1rem;
-          text-transform: capitalize;
-        }
-      }
     }
-  }
 }

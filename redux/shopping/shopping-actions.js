@@ -1,5 +1,13 @@
 import * as actionTypes from "./shopping-types";
 
+// Set Products
+export const setProducts = (products) => {
+  return {
+    type: actionTypes.SET_PRODUCTS,
+    payload: products,
+  };
+};
+
 // add product to basket
 export const addToCatr = (itemID) => {
   return {
@@ -20,6 +28,7 @@ export const removeFromCart = (itemID) => {
   };
 };
 
+// Add QTY
 export const adjustQty = (itemID, value) => {
   return {
     type: actionTypes.ADJUST_QTY,

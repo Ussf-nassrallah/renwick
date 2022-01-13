@@ -1,50 +1,41 @@
-import React, { useContext } from "react";
-import { ProductContext } from "../context/GlobalState";
+import React from "react";
+import { useSelector } from "react-redux";
 import Product from "./Product";
 import styles from "../styles/Components/ProductList.module.scss";
 
 const ProductList = () => {
-  const { products } = useContext(ProductContext);
+    const products = useSelector((state) => state.products);
 
-  let categories = [];
+    let categories = [];
 
-  for (let index = 0; index < products.length; index++) {
-    categories.push(products[index].category);
-  }
+    for (let index = 0; index < products.length; index++) {
+        categories.push(products[index].category);
+    }
 
-  const filterProducts = (category) => {
-    let items = products.filter((item) => item.category === category);
+    const filterProducts = (category) => {
+        let items = products.filter((item) => item.category === category);
 
-    let output = items.map((item, index) => (
-      <Product
-        key={index}
-        id={item.id}
-        image={item.image}
-        category={item.category}
-        title={item.title}
-        description={item.description}
-        rating={item.rating.rate}
-        price={item.price}
-      />
-    ));
+        let output = items.map((item, index) => (
+            <Product key={index} props={item} rating={item.rating.rate} />
+        ));
 
-    return output;
-  };
+        return output;
+    };
 
-  const generateProducts = () => {
-    let uniqueCategories = [...new Set(categories)];
+    const generateProducts = () => {
+        let uniqueCategories = [...new Set(categories)];
 
-    let output = uniqueCategories.map((category, index) => (
-      <div key={index} className={styles.products}>
-        <h2>{category}</h2>
-        <div className={styles.grid}>{filterProducts(category)}</div>
-      </div>
-    ));
+        let output = uniqueCategories.map((category, index) => (
+            <div key={index} className={styles.products}>
+                <h2>{category}</h2>
+                <div className={styles.grid}>{filterProducts(category)}</div>
+            </div>
+        ));
 
-    return output;
-  };
+        return output;
+    };
 
-  return <>{generateProducts()}</>;
+    return <>{generateProducts()}</>;
 };
 
 export default ProductList;
