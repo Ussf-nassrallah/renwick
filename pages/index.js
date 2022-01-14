@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import * as actionTypes from "../Store/actions/types";
 import Head from "next/head";
+import Banner from "../Components/Banner";
 import ProductList from "../Components/ProductList";
 import styles from "../styles/Home.module.scss";
 
@@ -27,6 +28,7 @@ function Home({ products }) {
             </Head>
 
             <main>
+                <Banner />
                 <ProductList />
             </main>
         </>

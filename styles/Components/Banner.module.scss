@@ -1,0 +1,41 @@
+@import "../Helpers/helpers";
+
+.banner {
+    width: 100%;
+    height: 100vh;
+
+    background: linear-gradient(
+            to top,
+            rgba($dark-clr, 0.9),
+            rgba($dark-clr, 0)
+        ),
+        url("../../../assets/hero-img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+    background-color: $dark-clr;
+    color: $white-clr;
+
+    &Content {
+        @include container;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        h1 {
+            font-size: $text-4xl;
+            font-weight: $fw-regular;
+        }
+
+        p {
+            font-size: $text-xl;
+            padding: 0.5rem 0;
+            font-weight: $fw-regular;
+            max-width: 400px;
+        }
+    }
+}

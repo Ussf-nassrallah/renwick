@@ -1,65 +1,69 @@
 @import "../Helpers/helpers";
 
 .product {
-  background: #fff;
-  position: relative;
-  padding: 1rem;
+    background: #fff;
+    position: relative;
+    padding: 1rem;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  .category {
-    font-size: $text-sm;
-    font-weight: $fw-regular;
-    text-transform: capitalize;
+    min-width: 250px;
+    width: 300px;
+    height: 420px;
 
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
 
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 10;
-  }
+    .category {
+        font-size: $text-sm;
+        font-weight: $fw-regular;
+        text-transform: capitalize;
 
-  .title {
-    margin-top: 1rem;
-    font-weight: $fw-regular;
-    line-height: 1.6;
-    opacity: 0.8;
-  }
+        display: flex;
+        justify-content: flex-end;
 
-  .topp {
-    color: #ddbc00;
-    text-transform: capitalize;
-    font-size: $text-sm;
-    font-weight: $fw-bold;
-    text-transform: capitalize;
-    margin-top: 0.4rem;
-  }
-
-  .rating {
-    display: flex;
-    margin: 0.4rem 0;
-
-    .icon {
-      font-size: 1.1rem;
-      color: #ddbc00;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 10;
     }
 
-    > * + * {
-      margin-left: 0.2rem;
+    .title {
+        margin-top: 1rem;
+        font-weight: $fw-regular;
+        line-height: 1.6;
+        opacity: 0.8;
     }
-  }
 
-  .price {
-    font-size: $text-xl;
-    font-weight: $fw-medium;
-  }
+    .topp {
+        color: #ddbc00;
+        text-transform: capitalize;
+        font-size: $text-sm;
+        font-weight: $fw-bold;
+        text-transform: capitalize;
+        margin-top: 0.4rem;
+    }
 
-  button {
-    font-size: $text-xs;
-    margin-top: 1rem;
-  }
+    .rating {
+        display: flex;
+        margin: 0.4rem 0;
+
+        .icon {
+            font-size: 1.1rem;
+            color: #ddbc00;
+        }
+
+        > * + * {
+            margin-left: 0.2rem;
+        }
+    }
+
+    .price {
+        font-size: $text-xl;
+        font-weight: $fw-medium;
+    }
+
+    button {
+        font-size: $text-xs;
+        margin-top: 1rem;
+    }
 }

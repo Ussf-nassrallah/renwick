@@ -1,36 +1,38 @@
 @import "../Helpers/helpers";
 
 .products {
-  @include container;
+    @include container;
+    padding: 2rem 0;
 
-  h2 {
-    font-weight: $fw-regular;
-    font-size: $text-xl;
-    text-transform: uppercase;
-  }
-
-  .grid {
-    display: flex;
-    overflow-x: auto;
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    margin: 2rem 0;
-
-    &:last-child {
-      margin-bottom: 0 !important;
+    h2 {
+        font-weight: $fw-medium;
+        font-size: $text-xl;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
     }
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    .grid {
+        // display: flex;
+        // overflow-x: auto;
+        // -ms-overflow-style: none; /* for Internet Explorer, Edge */
+        // scrollbar-width: none; /* for Firefox */
+        margin: 2rem 0;
 
-    > * {
-      min-width: 250px;
-      width: 300px;
-    }
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
 
-    > * + * {
-      margin-left: 1rem;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        > * {
+            min-width: 250px;
+            width: 300px;
+        }
+
+        > * + * {
+            margin-left: 1rem;
+        }
     }
-  }
 }

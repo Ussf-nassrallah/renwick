@@ -1,36 +1,53 @@
 @import "../Helpers/helpers";
 
 .nav {
-  padding: 1.3rem 0;
-  background-color: $secondary-clr;
+    padding: 1.3rem 0;
+    background-color: $secondary-clr;
 
-  &Container {
-    @include container;
+    &Container {
+        @include container;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &Links {
-    text-transform: uppercase;
-    font-weight: $fw-light;
-  }
-
-  &Icons {
-    > li {
-      font-size: 1.7rem;
-      cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-  }
 
-  &Links,
-  &Icons {
-    display: flex;
-    align-items: center;
-
-    > * + * {
-      margin-left: 2rem;
+    &Links {
+        text-transform: uppercase;
+        font-weight: $fw-light;
     }
-  }
+
+    &Icons {
+        > li {
+            font-size: 1.7rem;
+            cursor: pointer;
+            position: relative;
+
+            span {
+                position: absolute;
+                top: -3px;
+                right: -10px;
+                font-size: 0.9rem;
+                background: #6d9886;
+                border-radius: 50%;
+                width: 18px;
+                height: 18px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #333;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &Links,
+    &Icons {
+        display: flex;
+        align-items: center;
+
+        > * + * {
+            margin-left: 2rem;
+        }
+    }
 }

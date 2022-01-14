@@ -1,10 +1,20 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import Slider from "react-slick";
 import Product from "./Product";
 import styles from "../styles/Components/ProductList.module.scss";
 
 const ProductList = () => {
     const products = useSelector((state) => state.products);
+
+    // Slider Settings
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+    };
 
     let categories = [];
 
@@ -28,7 +38,7 @@ const ProductList = () => {
         let output = uniqueCategories.map((category, index) => (
             <div key={index} className={styles.products}>
                 <h2>{category}</h2>
-                <div className={styles.grid}>{filterProducts(category)}</div>
+                <Slider {...settings}>{filterProducts(category)}</Slider>
             </div>
         ));
 
