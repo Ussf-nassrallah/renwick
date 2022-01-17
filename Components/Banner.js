@@ -20,10 +20,9 @@
 // }
 
 import React from "react";
-import styles from "../styles/Components/Banner.module.scss";
-// Icons
 import { IoMdArrowForward } from "react-icons/io";
 import PrimaryBtn from "../Layout/PrimaryBtn";
+import styles from "../styles/Components/Banner.module.scss";
 
 const Banner = () => {
     return (
@@ -32,7 +31,7 @@ const Banner = () => {
                 <h1>All the gifts</h1>
                 <p>It's officially that time and we have just the things</p>
                 <PrimaryBtn
-                    value="the holiday edit"
+                    value="Shop Now"
                     icon={<IoMdArrowForward className="icon" />}
                 />
             </div>

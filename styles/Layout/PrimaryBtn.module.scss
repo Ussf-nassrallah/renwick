@@ -1,0 +1,14 @@
+@import "../Helpers/helpers";
+
+.btnPrimary {
+    @include btn;
+    background-color: $primary-clr;
+    color: $white-clr;
+
+    .icon {
+        margin-left: 0.5rem;
+        font-size: 1.5rem;
+        color: $white-clr;
+        display: flex;
+    }
+}
