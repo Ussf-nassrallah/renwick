@@ -5,7 +5,7 @@ const PrimaryBtn = ({ value, icon }) => {
     return (
         <button className={styles.btnPrimary}>
             {value}
-            {icon}
+            <span className={styles.icon}>{icon}</span>
         </button>
     );
 };

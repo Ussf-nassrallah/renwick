@@ -4,6 +4,10 @@
     padding: 1.3rem 0;
     background-color: $secondary-clr;
 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
     &Container {
         @include container;
 
