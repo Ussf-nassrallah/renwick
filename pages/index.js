@@ -5,6 +5,7 @@ import Head from "next/head";
 import Banner from "../Components/Banner";
 import ProductList from "../Components/ProductList";
 import styles from "../styles/Home.module.scss";
+import SearchBox from "../Components/SearchBox";
 
 function Home({ products }) {
     const dispatch = useDispatch();
