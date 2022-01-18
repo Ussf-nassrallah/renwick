@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Components
 import SearchBox from "../Components/SearchBox";
@@ -7,12 +7,14 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
+    const [input, setInput] = useState(false);
+
     return (
         <>
-            <SearchBox />
+            <SearchBox input={input} setInput={setInput} />
             <header>
                 <Upperbar />
-                <Navbar />
+                <Navbar input={input} setInput={setInput} />
             </header>
             <main>{children}</main>
             <Footer />

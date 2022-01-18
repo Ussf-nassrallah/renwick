@@ -8,7 +8,7 @@ import { AiOutlineShopping, AiOutlineSearch } from "react-icons/ai";
 // styles
 import styles from "../styles/Layout/Navbar.module.scss";
 
-export default function Navbar() {
+export default function Navbar({ input, setInput }) {
     const cartItems = useSelector((state) => state.cart);
 
     const navLinks = [
@@ -40,7 +40,7 @@ export default function Navbar() {
                         </li>
                     </Link>
 
-                    <li>
+                    <li onClick={() => setInput(true)}>
                         <AiOutlineSearch />
                     </li>
                 </ul>
