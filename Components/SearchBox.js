@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
+import { IoMdArrowForward } from "react-icons/io";
+import PrimaryBtn from "../Layout/PrimaryBtn";
 import styles from "../styles/Components/SearchBox.module.scss";
 
 const SearchBox = ({ input, setInput }) => {
@@ -56,27 +58,42 @@ const SearchBox = ({ input, setInput }) => {
                 </div>
             </div>
 
-            <div className={styles.searchProducts}>
-                {searchProducts.slice(0, 3).map((product) => (
-                    <div key={product.id} className={styles.searchProduct}>
-                        <Image
-                            src={product.image}
-                            objectFit="contain"
-                            width={170}
-                            height={170}
-                        />
+            <div
+                className={
+                    value === "" || value === null
+                        ? `${styles.searchItems} ${styles.hide}`
+                        : `${styles.searchItems} ${styles.show}`
+                }
+            >
+                <div className={styles.searchProducts}>
+                    {searchProducts.slice(0, 3).map((product) => (
+                        <div key={product.id} className={styles.searchProduct}>
+                            <Image
+                                src={product.image}
+                                objectFit="contain"
+                                width={170}
+                                height={170}
+                            />
 
-                        <div className={styles.searchProductInfo}>
-                            <p className={styles.searchProductTitle}>
-                                {product.title}
-                            </p>
+                            <div className={styles.searchProductInfo}>
+                                <p className={styles.searchProductTitle}>
+                                    {product.title}
+                                </p>
 
-                            <p className={styles.searchProductCategory}>
-                                {product.category}
-                            </p>
+                                <p className={styles.searchProductCategory}>
+                                    {product.category}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+
+                <div className={styles.showBtn}>
+                    <PrimaryBtn
+                        value="View All"
+                        icon={<IoMdArrowForward className="icon" />}
+                    />
+                </div>
             </div>
 
             <div

@@ -6,7 +6,6 @@
     &Div {
         background-color: #fff;
         padding: 1rem;
-        border-bottom: 1px solid #ccc;
 
         display: flex;
         justify-content: space-between;
@@ -17,7 +16,7 @@
         z-index: 150;
         top: 0;
 
-        transition: transform 700ms ease;
+        transition: transform 500ms ease;
 
         &Input {
             flex: 1 !important;
@@ -42,7 +41,7 @@
         }
     }
 
-    &Products {
+    &Items {
         position: fixed;
         top: 4rem;
         z-index: 149;
@@ -51,6 +50,15 @@
         padding: 3rem 2rem;
         width: 100%;
 
+        .showBtn {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 1rem;
+        }
+    }
+
+    &Products {
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -85,7 +93,7 @@
         height: 100%;
         background: rgba($color: #000000, $alpha: 0.7);
         z-index: 148;
-        transition: all 700ms ease;
+        transition: all 500ms ease;
 
         &Show {
             opacity: 1;
@@ -97,4 +105,12 @@
             visibility: hidden;
         }
     }
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
 }
