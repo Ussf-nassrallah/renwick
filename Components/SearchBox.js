@@ -52,7 +52,10 @@ const SearchBox = ({ input, setInput }) => {
 
                 <div
                     className={styles.closeIcon}
-                    onClick={() => setInput(false)}
+                    onClick={() => {
+                        setInput(false);
+                        setValue("");
+                    }}
                 >
                     <AiOutlineClose />
                 </div>
@@ -60,7 +63,7 @@ const SearchBox = ({ input, setInput }) => {
 
             <div
                 className={
-                    value === "" || value === null
+                    value === "" || value === null || !input
                         ? `${styles.searchItems} ${styles.hide}`
                         : `${styles.searchItems} ${styles.show}`
                 }
