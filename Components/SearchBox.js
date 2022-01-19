@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { useSelector } from "react-redux";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import styles from "../styles/Components/SearchBox.module.scss";
 
 const SearchBox = ({ input, setInput }) => {
+    // Get Products from Redux Store
+    const products = useSelector((state) => state.products);
+    // Input Value
+    const [value, setValue] = useState(null);
+    // Search Products
+    const [searchProducts, setSearchProducts] = useState([]);
+
+    useEffect(() => {
+        let searchProducts = () => {
+            let searchProducts = products.filter((product) =>
+                product.title.includes(value)
+            );
+
+            if (value === "") {
+                setSearchProducts([]);
+            } else {
+                setSearchProducts(searchProducts);
+            }
+        };
+        searchProducts();
+    }, [value, products]);
+
     return (
         <div className={styles.search}>
             <div
@@ -20,6 +44,8 @@ const SearchBox = ({ input, setInput }) => {
                     type="text"
                     placeholder="Search"
                     className={styles.searchDivInput}
+                    onChange={(e) => setValue(e.target.value)}
+                    value={value}
                 />
 
                 <div
@@ -28,6 +54,29 @@ const SearchBox = ({ input, setInput }) => {
                 >
                     <AiOutlineClose />
                 </div>
+            </div>
+
+            <div className={styles.searchProducts}>
+                {searchProducts.slice(0, 3).map((product) => (
+                    <div key={product.id} className={styles.searchProduct}>
+                        <Image
+                            src={product.image}
+                            objectFit="contain"
+                            width={170}
+                            height={170}
+                        />
+
+                        <div className={styles.searchProductInfo}>
+                            <p className={styles.searchProductTitle}>
+                                {product.title}
+                            </p>
+
+                            <p className={styles.searchProductCategory}>
+                                {product.category}
+                            </p>
+                        </div>
+                    </div>
+                ))}
             </div>
 
             <div

@@ -6,6 +6,7 @@
     &Div {
         background-color: #fff;
         padding: 1rem;
+        border-bottom: 1px solid #ccc;
 
         display: flex;
         justify-content: space-between;
@@ -41,6 +42,41 @@
         }
     }
 
+    &Products {
+        position: fixed;
+        top: 4rem;
+        z-index: 149;
+
+        background-color: #fff;
+        padding: 3rem 2rem;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    &Product {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        &Info {
+            margin-left: 1rem;
+        }
+
+        &Title {
+            max-width: 250px;
+        }
+
+        &Category {
+            margin-top: 0.5rem;
+            font-size: $text-sm;
+            text-transform: capitalize;
+            opacity: 0.5;
+        }
+    }
+
     &Overlay {
         position: fixed;
         top: 0;
@@ -48,7 +84,7 @@
         width: 100%;
         height: 100%;
         background: rgba($color: #000000, $alpha: 0.7);
-        z-index: 149;
+        z-index: 148;
         transition: all 700ms ease;
 
         &Show {
