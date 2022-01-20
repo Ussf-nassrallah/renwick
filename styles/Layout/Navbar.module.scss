@@ -2,11 +2,8 @@
 
 .nav {
     padding: 1.3rem 0;
-    background-color: $secondary-clr;
-
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background-color: $white-clr;
+    border-bottom: 0.7px solid #e7e7e7;
 
     &Container {
         @include container;
@@ -14,6 +11,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+    }
+
+    &Logo {
+        width: 180px;
     }
 
     &Links {
@@ -32,14 +37,14 @@
                 top: -3px;
                 right: -10px;
                 font-size: 0.9rem;
-                background: #6d9886;
+                background: $primary-clr;
                 border-radius: 50%;
                 width: 18px;
                 height: 18px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                color: #333;
+                color: $white-clr;
                 font-weight: 500;
             }
         }

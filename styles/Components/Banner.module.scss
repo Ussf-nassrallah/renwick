@@ -4,11 +4,7 @@
     width: 100%;
     height: calc(100vh - 119.97px);
 
-    background: linear-gradient(
-            to top,
-            rgba($dark-clr, 0.9),
-            rgba($dark-clr, 0)
-        ),
+    background: linear-gradient(to top, rgba(#000, 0.5), rgba(#000, 0.5)),
         url("../../Assets/hero-img.jpg");
     background-size: cover;
     background-repeat: no-repeat;

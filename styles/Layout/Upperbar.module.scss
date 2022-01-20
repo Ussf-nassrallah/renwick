@@ -1,15 +1,14 @@
 @import "../Helpers/helpers";
 
 .ub {
-  background-color: $dark-clr;
-  color: $light-clr;
-  font-size: $text-sm;
-  font-weight: $fw-light;
-  text-align: center;
-  padding: 0.7rem 0;
-  text-transform: uppercase;
+    background-color: $secondary-clr;
+    font-size: $text-sm;
+    font-weight: $fw-light;
+    text-align: center;
+    padding: 0.7rem 0;
+    text-transform: uppercase;
 
-  &Content {
-    color: $light-clr;
-  }
+    &Content {
+        color: #222;
+    }
 }

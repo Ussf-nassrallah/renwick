@@ -1,6 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import Logo from "../Assets/logo.png";
 
 // icons
 import { AiOutlineShopping, AiOutlineSearch } from "react-icons/ai";
@@ -23,7 +25,9 @@ export default function Navbar({ input, setInput }) {
         <nav className={styles.nav}>
             <div className={styles.navContainer}>
                 <Link href="/">
-                    <div className={styles.navLogo}>STORE</div>
+                    <div className={styles.navLogo}>
+                        <Image src={Logo} objectFit="contain" />
+                    </div>
                 </Link>
 
                 <ul className={styles.navLinks}>
