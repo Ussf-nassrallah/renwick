@@ -7,7 +7,7 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
-        // Fetch Data from fake store API
+        // Fetch Data from API
         case actionTypes.SET_PRODUCTS:
             return { ...state, products: action.payload };
         // Add Product To Cart
