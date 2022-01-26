@@ -1,8 +1,6 @@
 @import "./Helpers/helpers";
 
 .shop {
-    // background-color: $light-clr;
-
     .flex {
         @include container;
 
@@ -73,9 +71,8 @@
                                 input {
                                     width: 70% !important;
                                     all: initial;
-                                    border: 1px solid #ccc;
+                                    border: 1px solid $primary-clr;
                                     padding: 0.3rem;
-                                    border-radius: 5px;
                                 }
                             }
                         }

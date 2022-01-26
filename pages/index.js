@@ -6,6 +6,7 @@ import Banner from "../Components/Banner";
 import ProductList from "../Components/ProductList";
 import styles from "../styles/Home.module.scss";
 import SearchBox from "../Components/SearchBox";
+import Modal from "../Components/Modal";
 
 function Home({ products }) {
     const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function Home({ products }) {
             <main>
                 <Banner />
                 <ProductList />
+                <Modal />
             </main>
         </>
     );
