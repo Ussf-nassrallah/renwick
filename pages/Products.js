@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import Product from "../Components/Product";
 import styles from "../styles/ProductsPage.module.scss";
 
 export default function Products({ products }) {
@@ -45,7 +46,17 @@ export default function Products({ products }) {
                 </div>
             </div>
 
-            <div className={styles.productsContainer}>Products</div>
+            <div className={styles.productsContainer}>
+                <header>
+                    <h2>Search results for “alan walker full album”</h2>
+                </header>
+
+                <section className={styles.products}>
+                    {products.map((product) => (
+                        <Product key={product.id} props={product} />
+                    ))}
+                </section>
+            </div>
         </section>
     );
 }
