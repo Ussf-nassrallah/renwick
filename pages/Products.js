@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import Product from "../Components/Product";
 import styles from "../styles/ProductsPage.module.scss";
 
 export default function Products({ products }) {
+    const [input, setInput] = useState("");
+    const [checked, setChecked] = useState(false);
+    const [value, setValue] = useState("");
+    const [searchProducts, setSearchProducts] = useState([]);
+
+    console.log(checked);
+
     let s = new Set();
 
     for (let index = 0; index < products.length; index++) {
@@ -12,8 +19,17 @@ export default function Products({ products }) {
 
     const categories = Array.from(s);
 
+    // filter products by categories
     const filterProducts = (category) =>
         products.filter((product) => product.category === category);
+
+    // filter products by keywords
+    const filterProductsbyStr = (str) =>
+        products.filter((product) => product.title.includes(str));
+
+    useEffect(() => {
+        setSearchProducts(filterProductsbyStr(input));
+    }, [input, products]);
 
     return (
         <section className={styles.productsPage}>
@@ -27,6 +43,8 @@ export default function Products({ products }) {
                         type="text"
                         className={styles.searchInput}
                         placeholder="Search By Keyword"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
                     />
                 </div>
 
@@ -40,7 +58,11 @@ export default function Products({ products }) {
                                     {`(${filterProducts(category).length})`}
                                 </span>
                             </label>
-                            <input type="checkbox" name={category} />
+                            <input
+                                type="checkbox"
+                                name={category}
+                                onChange={(e) => setChecked(e.target.checked)}
+                            />
                         </div>
                     ))}
                 </div>
@@ -48,11 +70,11 @@ export default function Products({ products }) {
 
             <div className={styles.productsContainer}>
                 <header>
-                    <h2>Search results for “alan walker full album”</h2>
+                    <h2>Search results for “{input}”</h2>
                 </header>
 
                 <section className={styles.products}>
-                    {products.map((product) => (
+                    {searchProducts.map((product) => (
                         <Product key={product.id} props={product} />
                     ))}
                 </section>
