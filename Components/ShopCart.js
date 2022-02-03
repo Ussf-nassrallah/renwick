@@ -5,7 +5,7 @@ import styles from "../styles/Checkout.module.scss";
 const ShopCart = () => {
     const shopProducts = useSelector((state) => state.cart);
 
-    function subtotal() {
+    const subtotal = () => {
         let total = [];
 
         const reducer = (previousValue, currentValue) =>
@@ -18,9 +18,9 @@ const ShopCart = () => {
         let subtotal = total.reduce(reducer);
 
         return parseInt(subtotal.toFixed(2));
-    }
+    };
 
-    function shipping(total, num) {
+    const shipping = (total, num) => {
         let output = 0;
         if (total > 99) {
             return (output = +total);
@@ -28,7 +28,7 @@ const ShopCart = () => {
             output = total + num;
             return parseInt(output.toFixed(2));
         }
-    }
+    };
 
     return (
         <div className={styles.shopCart}>

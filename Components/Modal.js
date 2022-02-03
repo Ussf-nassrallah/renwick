@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Logo from "../Assets/logo.png";
 import { AiOutlineClose } from "react-icons/ai";
@@ -7,9 +7,11 @@ import styles from "../styles/Components/Modal.module.scss";
 const Modal = () => {
     const [modal, setModal] = useState(false);
 
-    setTimeout(() => {
-        setModal(true);
-    }, 5000);
+    useEffect(() => {
+        setTimeout(() => {
+            setModal(true);
+        }, 10000);
+    }, []);
 
     return (
         <div

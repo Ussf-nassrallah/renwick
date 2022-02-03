@@ -1,9 +1,13 @@
+// HOOKS
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import { useSelector } from "react-redux";
+import Image from "next/image";
+// ICONS
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
 import { IoMdArrowForward } from "react-icons/io";
+// COMPONENTS
 import PrimaryBtn from "../Layout/PrimaryBtn";
+// STYLES
 import styles from "../styles/Components/SearchBox.module.scss";
 
 const SearchBox = ({ input, setInput }) => {
