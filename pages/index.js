@@ -32,7 +32,7 @@ function Home({ products }) {
             <main>
                 <Banner />
                 <ProductList />
-                <Modal />
+                {/* <Modal /> */}
             </main>
         </>
     );

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import "./Helpers/helpers";
+
 *,
 *::before,
 *::after {
@@ -28,7 +30,25 @@ button {
     font-family: "Montserrat", sans-serif !important;
 }
 
-// down
+// Utilities
+.hide-for-mobile {
+    @include breakpoint-down(medium) {
+        display: none;
+    }
+}
+
+.hide-for-desktop {
+    @include breakpoint-up(medium) {
+        display: none;
+    }
+}
+
+.bars-icon {
+    font-size: 1.4rem;
+    display: flex;
+}
+
+// Slider
 .slick-next::before {
     all: initial;
 }

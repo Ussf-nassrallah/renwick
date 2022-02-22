@@ -6,6 +6,7 @@ import Logo from "../Assets/logo.png";
 
 // icons
 import { AiOutlineShopping, AiOutlineSearch } from "react-icons/ai";
+import { FaBars } from "react-icons/fa";
 
 // styles
 import styles from "../styles/Layout/Navbar.module.scss";
@@ -24,13 +25,17 @@ export default function Navbar({ input, setInput }) {
     return (
         <nav className={styles.nav}>
             <div className={styles.navContainer}>
+                <div className="hide-for-desktop">
+                    <FaBars className="bars-icon" />
+                </div>
+
                 <Link href="/">
                     <div className={styles.navLogo}>
                         <Image src={Logo} objectFit="contain" />
                     </div>
                 </Link>
 
-                <ul className={styles.navLinks}>
+                <ul className={`${styles.navLinks} hide-for-mobile`}>
                     {navLinks.map((navLink) => (
                         <li key={navLink.id}>{navLink.text}</li>
                     ))}

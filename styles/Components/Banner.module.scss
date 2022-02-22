@@ -23,6 +23,11 @@
         flex-direction: column;
         align-items: flex-start;
 
+        @include breakpoint-down(small) {
+            align-items: center;
+            text-align: center;
+        }
+
         h1 {
             font-size: $text-4xl;
             font-weight: $fw-regular;

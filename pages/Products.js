@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import Product from "../Components/Product";
 import styles from "../styles/ProductsPage.module.scss";
@@ -8,8 +8,6 @@ export default function Products({ products }) {
     const [checked, setChecked] = useState(false);
     const [value, setValue] = useState("");
     const [searchProducts, setSearchProducts] = useState([]);
-
-    console.log(checked);
 
     let s = new Set();
 
@@ -31,6 +29,10 @@ export default function Products({ products }) {
         setSearchProducts(filterProductsbyStr(input));
     }, [input, products]);
 
+    const checkboxRef = useRef();
+
+    const save = () => console.log(checkboxRef.current.checked);
+
     return (
         <section className={styles.productsPage}>
             {/* Filter Panel */}
@@ -39,6 +41,7 @@ export default function Products({ products }) {
                     <div className={styles.searchIcon}>
                         <AiOutlineSearch className={styles.icon} />
                     </div>
+
                     <input
                         type="text"
                         className={styles.searchInput}
@@ -58,10 +61,11 @@ export default function Products({ products }) {
                                     {`(${filterProducts(category).length})`}
                                 </span>
                             </label>
+
                             <input
                                 type="checkbox"
                                 name={category}
-                                onChange={(e) => setChecked(e.target.checked)}
+                                ref={checkboxRef}
                             />
                         </div>
                     ))}
