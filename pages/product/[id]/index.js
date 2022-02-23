@@ -61,7 +61,9 @@ function singleProduct({ product }) {
 
                     <p className={styles.infoDesc}>{product.description}</p>
 
-                    <AddToCartBtn props={product} />
+                    <div>
+                        <AddToCartBtn props={product} />
+                    </div>
                 </div>
             </div>
         </>
