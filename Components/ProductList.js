@@ -14,6 +14,24 @@ const ProductList = () => {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 4,
+        responsive: [
+            {
+                breakpoint: 1023,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 639,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     let categories = [];

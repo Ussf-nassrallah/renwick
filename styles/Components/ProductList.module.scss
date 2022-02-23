@@ -9,6 +9,13 @@
         font-size: $text-xl;
         text-transform: uppercase;
         margin-bottom: 1.5rem;
+
+        @include breakpoint-down(small) {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 1rem 0 3rem 0;
+        }
     }
 
     .grid {
