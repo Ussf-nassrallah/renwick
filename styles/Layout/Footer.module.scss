@@ -1,0 +1,152 @@
+@import "../Helpers/helpers";
+
+.footer {
+  background-color: #333;
+  margin-top: 4rem;
+
+  &Container:nth-child(1) {
+    background-color: #222;
+  }
+
+  &ContactInfo {
+    @include container;
+    padding: 2rem 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    li {
+      flex: 1;
+    }
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      color: #fff;
+
+      h4 {
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 1.125rem;
+      }
+
+      p {
+        opacity: 0.5;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .iconDiv {
+        font-size: 2.3rem;
+        border: 1px solid #fff;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+
+        border-radius: 50%;
+        margin-right: 1rem;
+
+        span {
+        }
+      }
+
+      &:not(:last-child) {
+        border-right: 1px solid #fff;
+        margin-right: 2rem;
+        padding-right: 2rem;
+      }
+
+      &:nth-child(2) {
+        justify-content: center;
+      }
+    }
+  }
+
+  &Container:nth-child(2) {
+    @include container;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+
+    > * {
+      flex: 1;
+    }
+  }
+
+  &Form {
+    order: 3;
+
+    &Label {
+      display: block;
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      max-width: 350px;
+      text-transform: capitalize;
+    }
+
+    &Input {
+      all: unset;
+      border-bottom: 2px solid #fff;
+      padding: 0 0.5rem 0.5rem 0.5rem;
+      color: #fff;
+      width: 90%;
+      opacity: 0.5;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+  }
+
+  h3 {
+    font-weight: 400;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+  }
+
+  &SocialLinks {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+
+    li {
+      font-size: 2rem;
+      color: #fff;
+      opacity: 0.5;
+    }
+
+    > * + * {
+      margin-left: 1rem;
+    }
+  }
+
+  &Links {
+    display: inline-block;
+    color: #fff;
+    text-transform: capitalize;
+
+    li {
+      margin-bottom: 0.5rem;
+      opacity: 0.5;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+        opacity: 1;
+      }
+    }
+  }
+
+  &Container:nth-child(3) {
+    padding: 2rem;
+    background-color: #222;
+    text-align: center;
+    color: #fff;
+  }
+}

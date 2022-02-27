@@ -29,10 +29,6 @@ export default function Products({ products }) {
         setSearchProducts(filterProductsbyStr(input));
     }, [input, products]);
 
-    const checkboxRef = useRef();
-
-    const save = () => console.log(checkboxRef.current.checked);
-
     return (
         <section className={styles.productsPage}>
             {/* Filter Panel */}
@@ -62,11 +58,7 @@ export default function Products({ products }) {
                                 </span>
                             </label>
 
-                            <input
-                                type="checkbox"
-                                name={category}
-                                ref={checkboxRef}
-                            />
+                            <input type="checkbox" />
                         </div>
                     ))}
                 </div>
