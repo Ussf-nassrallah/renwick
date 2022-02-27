@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/Layout/Footer.module.scss";
 
 // icons
-import { MdLocationOn, MdPhone, MdEmail } from "react-icons/md";
+import { MdLocationOn, MdPhone, MdEmail, MdSend } from "react-icons/md";
 import {
   AiFillInstagram,
   AiFillFacebook,
@@ -58,12 +58,18 @@ const Footer = () => {
               sign up for our monthly reports.
             </label>
 
-            <input
-              id="email"
-              type="email"
-              placeholder="Your Email"
-              className={styles.footerFormInput}
-            />
+            <div className={styles.footerFormInputDiv}>
+              <div className={styles.icon}>
+                <MdSend />
+              </div>
+
+              <input
+                id="email"
+                type="email"
+                placeholder="Your Email"
+                className={styles.footerFormInput}
+              />
+            </div>
           </div>
         </form>
 
