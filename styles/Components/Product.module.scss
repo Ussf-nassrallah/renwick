@@ -1,81 +1,91 @@
 @import "../Helpers/helpers";
 
 .product {
-    background: #fff;
-    position: relative;
-    padding: 1rem;
+  background: #fff;
+  position: relative;
+  padding: 1rem;
 
-    min-width: 250px;
-    width: 300px;
-    height: 420px;
+  min-width: 250px;
+  width: 300px;
+  height: 420px;
 
-    @include breakpoint-down(medium) {
-        width: initial;
-    }
+  @include breakpoint-down(small) {
+    height: 350px;
+  }
+
+  @include breakpoint-down(medium) {
+    width: initial;
+    min-width: initial;
+    padding: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .category {
+    font-size: $text-sm;
+    font-weight: $fw-regular;
+    text-transform: capitalize;
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
 
-    .category {
-        font-size: $text-sm;
-        font-weight: $fw-regular;
-        text-transform: capitalize;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
 
-        display: flex;
-        justify-content: flex-end;
+    @include breakpoint-down(small) {
+      display: none;
+    }
+  }
 
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 10;
+  .title {
+    margin-top: 1rem;
+    font-weight: $fw-regular;
+    line-height: 1.6;
+    opacity: 0.8;
 
-        @include breakpoint-down(small) {
-            display: none;
-        }
+    @include breakpoint-down(small) {
+      font-size: 0.8rem;
+    }
+  }
+
+  .topp {
+    color: #ddbc00;
+    text-transform: capitalize;
+    font-size: $text-sm;
+    font-weight: $fw-bold;
+    text-transform: capitalize;
+    margin-top: 0.4rem;
+  }
+
+  .rating {
+    display: flex;
+    margin: 0.4rem 0;
+
+    .icon {
+      font-size: 1.1rem;
+      color: #ddbc00;
     }
 
-    .title {
-        margin-top: 1rem;
-        font-weight: $fw-regular;
-        line-height: 1.6;
-        opacity: 0.8;
+    > * + * {
+      margin-left: 0.2rem;
     }
+  }
 
-    .topp {
-        color: #ddbc00;
-        text-transform: capitalize;
-        font-size: $text-sm;
-        font-weight: $fw-bold;
-        text-transform: capitalize;
-        margin-top: 0.4rem;
+  .price {
+    font-size: $text-xl;
+    font-weight: $fw-medium;
+  }
+
+  button {
+    font-size: $text-xs;
+    margin-top: 1rem;
+
+    @include breakpoint-down(medium) {
+      width: initial;
     }
-
-    .rating {
-        display: flex;
-        margin: 0.4rem 0;
-
-        .icon {
-            font-size: 1.1rem;
-            color: #ddbc00;
-        }
-
-        > * + * {
-            margin-left: 0.2rem;
-        }
-    }
-
-    .price {
-        font-size: $text-xl;
-        font-weight: $fw-medium;
-    }
-
-    button {
-        font-size: $text-xs;
-        margin-top: 1rem;
-
-        @include breakpoint-down(medium) {
-            width: initial;
-        }
-    }
+  }
 }

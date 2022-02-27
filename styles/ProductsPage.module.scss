@@ -1,71 +1,95 @@
 @import "./Helpers/helpers.scss";
 
 .products {
-    &Page {
-        display: flex;
+  &Page {
+    display: flex;
+    width: 100%;
+
+    @include breakpoint-down(medium) {
+      margin-top: 5rem;
+      flex-direction: column;
+    }
+  }
+
+  &Sidebar {
+    background-color: #f6f6f6;
+    width: 22%;
+    height: 100vh;
+    padding: 0 1rem;
+
+    @include breakpoint-down(medium) {
+      width: 100%;
+      height: initial;
+      padding: 1rem;
+    }
+
+    .search {
+      margin: 1rem 0 2rem 0;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      background-color: transparent;
+      border-bottom: 2px solid $primary-clr;
+      padding: 0.5rem;
+
+      &Input {
+        all: unset;
         width: 100%;
+      }
+
+      &Icon {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+
+        .icon {
+          display: flex;
+        }
+      }
     }
 
-    &Sidebar {
-        background-color: #f6f6f6;
-        width: 22%;
-        height: 100vh;
-        padding: 0 1rem;
+    .inputGroup {
+      &Label {
+        font-weight: $fw-medium;
+        text-transform: capitalize;
+        margin-bottom: 0.5rem;
+      }
 
-        .search {
-            margin: 1rem 0 2rem 0;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            background-color: transparent;
-            border-bottom: 2px solid $primary-clr;
-            padding: 0.5rem;
+      &Element {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.25rem 0;
 
-            &Input {
-                all: unset;
-                width: 100%;
-            }
-
-            &Icon {
-                margin-right: 0.5rem;
-                font-size: 1.2rem;
-
-                .icon {
-                    display: flex;
-                }
-            }
+        label {
+          font-size: $text-sm;
+          text-transform: capitalize;
         }
+      }
+    }
+  }
 
-        .inputGroup {
-            &Label {
-                font-weight: $fw-medium;
-                text-transform: capitalize;
-                margin-bottom: 0.5rem;
-            }
+  &Container {
+    flex: 1;
+    padding: 2rem;
 
-            &Element {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.25rem 0;
-
-                label {
-                    font-size: $text-sm;
-                    text-transform: capitalize;
-                }
-            }
-        }
+    @include breakpoint-down(medium) {
+      padding: 2rem 1rem;
     }
 
-    &Container {
-        flex: 1;
-        padding: 2rem;
+    .products {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
 
-        .products {
-            margin-top: 3rem;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
+      @include breakpoint-down(medium) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      // @include breakpoint-down(small) {
+      //   grid-template-columns: repeat(2, 1fr);
+      //   gap: 1rem;
+      // }
     }
+  }
 }
