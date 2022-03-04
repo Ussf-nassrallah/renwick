@@ -12,48 +12,48 @@ import { FaBars } from "react-icons/fa";
 import styles from "../styles/Layout/Navbar.module.scss";
 
 export default function Navbar({ input, setInput }) {
-    const cartItems = useSelector((state) => state.cart);
+  const cartItems = useSelector((state) => state.cart);
 
-    const navLinks = [
-        { id: 1, text: "shop" },
-        { id: 2, text: "gifts" },
-        { id: 3, text: "best sellers" },
-        { id: 4, text: "news" },
-        { id: 5, text: "packs" },
-    ];
+  const navLinks = [
+    { id: 1, text: "shop" },
+    { id: 2, text: "gifts" },
+    { id: 3, text: "best sellers" },
+    { id: 4, text: "news" },
+    { id: 5, text: "packs" },
+  ];
 
-    return (
-        <nav className={styles.nav}>
-            <div className={styles.navContainer}>
-                <div className="hide-for-desktop">
-                    <FaBars className="bars-icon" />
-                </div>
+  return (
+    <nav className={styles.nav}>
+      <div className={styles.navContainer}>
+        <div className="hide-for-desktop">
+          <FaBars className="bars-icon" />
+        </div>
 
-                <Link href="/">
-                    <div className={styles.navLogo}>
-                        <Image src={Logo} objectFit="contain" />
-                    </div>
-                </Link>
+        <Link href="/">
+          <div className={styles.navLogo}>
+            <Image src={Logo} objectFit="contain" />
+          </div>
+        </Link>
 
-                <ul className={`${styles.navLinks} hide-for-mobile`}>
-                    {navLinks.map((navLink) => (
-                        <li key={navLink.id}>{navLink.text}</li>
-                    ))}
-                </ul>
+        <ul className={`${styles.navLinks} hide-for-mobile`}>
+          {navLinks.map((navLink) => (
+            <li key={navLink.id}>{navLink.text}</li>
+          ))}
+        </ul>
 
-                <ul className={styles.navIcons}>
-                    <Link href="/Checkout">
-                        <li>
-                            <AiOutlineShopping />
-                            <span>{cartItems.length}</span>
-                        </li>
-                    </Link>
+        <ul className={styles.navIcons}>
+          <Link href="/Checkout">
+            <li>
+              <AiOutlineShopping />
+              <span>{cartItems.length}</span>
+            </li>
+          </Link>
 
-                    <li onClick={() => setInput(true)}>
-                        <AiOutlineSearch />
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    );
+          <li onClick={() => setInput(true)}>
+            <AiOutlineSearch />
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }

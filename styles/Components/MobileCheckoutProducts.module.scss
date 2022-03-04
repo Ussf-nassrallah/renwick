@@ -1,0 +1,44 @@
+@import "../Helpers/helpers";
+
+.m__CheckoutProducts {
+  margin-top: 4rem;
+
+  .m__CheckoutProduct {
+    display: flex;
+    margin-bottom: 1rem;
+
+    .productTitle {
+      font-size: 0.9rem;
+    }
+
+    .productPrice {
+      font-size: 0.8rem;
+      opacity: 0.5;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .removeBtn {
+      font-size: 0.8rem;
+      text-transform: capitalize;
+      text-decoration: underline;
+    }
+
+    .flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .total {
+        font-size: 0.8rem;
+        opacity: 0.5;
+      }
+
+      input {
+        width: 50%;
+        border: 1px solid $primary-clr;
+        padding: 0.2rem;
+      }
+    }
+  }
+}
