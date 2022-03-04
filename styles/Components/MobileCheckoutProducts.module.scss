@@ -6,6 +6,12 @@
   .m__CheckoutProduct {
     display: flex;
     margin-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+
+    .productInfo {
+      margin-left: 1rem;
+    }
 
     .productTitle {
       font-size: 0.9rem;
@@ -38,6 +44,7 @@
         width: 50%;
         border: 1px solid $primary-clr;
         padding: 0.2rem;
+        outline: none;
       }
     }
   }
