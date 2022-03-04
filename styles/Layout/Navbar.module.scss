@@ -1,82 +1,148 @@
 @import "../Helpers/helpers";
 
 .nav {
-    padding: 1.3rem 0;
-    background-color: $white-clr;
-    border-bottom: 0.7px solid #e7e7e7;
+  padding: 1.3rem 0;
+  background-color: $white-clr;
+  border-bottom: 0.7px solid #e7e7e7;
 
-    @include breakpoint-down(medium) {
-        background-color: rgba($white-clr, $alpha: 0.9);
+  position: relative;
 
-        position: fixed;
+  @include breakpoint-down(medium) {
+    background-color: rgba($white-clr, $alpha: 0.9);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 120;
+    width: 100%;
+
+    padding: 1rem 0;
+  }
+
+  &Container {
+    @include container;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &Logo {
+    width: 180px;
+
+    @include breakpoint-down(small) {
+      width: 140px;
+    }
+  }
+
+  &Links {
+    text-transform: uppercase;
+    font-weight: $fw-light;
+  }
+
+  &Icons {
+    > li {
+      font-size: 1.7rem;
+      cursor: pointer;
+      position: relative;
+
+      @include breakpoint-down(small) {
+        font-size: 1.5rem;
+      }
+
+      span {
+        position: absolute;
+        top: -3px;
+        right: -10px;
+        font-size: 0.9rem;
+        background: $primary-clr;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white-clr;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &Links,
+  &Icons {
+    display: flex;
+    align-items: center;
+
+    > * + * {
+      margin-left: 2rem;
+
+      @include breakpoint-down(small) {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &LinksMobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    height: 100vh;
+    width: 70%;
+    padding: 2rem;
+    z-index: 150;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    li {
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #ccc;
+      text-transform: capitalize;
+
+      &.closeIcon {
+        position: absolute;
         top: 0;
-        left: 0;
-        z-index: 120;
+        right: 0;
+        border: none;
+        margin: 0;
+        padding: 1rem;
+        font-size: 1.5rem;
+      }
+
+      &.socialLinks {
+        border: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 0;
         width: 100%;
+        left: 0;
 
-        padding: 1rem 0;
-    }
+        ul {
+          display: flex;
+          justify-content: space-around;
 
-    &Container {
-        @include container;
+          margin-bottom: 2rem;
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &Logo {
-        width: 180px;
-
-        @include breakpoint-down(small) {
-            width: 140px;
+          li {
+            border: none;
+            font-size: 2rem;
+            opacity: 0.8;
+          }
         }
+      }
     }
+  }
 
-    &Links {
-        text-transform: uppercase;
-        font-weight: $fw-light;
-    }
-
-    &Icons {
-        > li {
-            font-size: 1.7rem;
-            cursor: pointer;
-            position: relative;
-
-            @include breakpoint-down(small) {
-                font-size: 1.5rem;
-            }
-
-            span {
-                position: absolute;
-                top: -3px;
-                right: -10px;
-                font-size: 0.9rem;
-                background: $primary-clr;
-                border-radius: 50%;
-                width: 18px;
-                height: 18px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: $white-clr;
-                font-weight: 500;
-            }
-        }
-    }
-
-    &Links,
-    &Icons {
-        display: flex;
-        align-items: center;
-
-        > * + * {
-            margin-left: 2rem;
-
-            @include breakpoint-down(small) {
-                margin-left: 1rem;
-            }
-        }
-    }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.7);
+  }
 }

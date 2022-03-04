@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import Logo from "../Assets/logo.png";
 
 // icons
-import { AiOutlineShopping, AiOutlineSearch } from "react-icons/ai";
+import {
+  AiOutlineShopping,
+  AiOutlineSearch,
+  AiOutlineClose,
+  AiFillInstagram,
+  AiFillFacebook,
+  AiFillTwitterSquare,
+} from "react-icons/ai";
 import { FaBars } from "react-icons/fa";
 
 // styles
@@ -35,10 +42,36 @@ export default function Navbar({ input, setInput }) {
           </div>
         </Link>
 
+        {/* nav links for desktop */}
         <ul className={`${styles.navLinks} hide-for-mobile`}>
           {navLinks.map((navLink) => (
             <li key={navLink.id}>{navLink.text}</li>
           ))}
+        </ul>
+
+        {/* nav links for mobile */}
+        <ul className={`${styles.navLinksMobile} hide-for-desktop`}>
+          {navLinks.map((navLink) => (
+            <li key={navLink.id}>{navLink.text}</li>
+          ))}
+
+          <li className={styles.closeIcon}>
+            <AiOutlineClose />
+          </li>
+
+          <li className={styles.socialLinks}>
+            <ul>
+              <li>
+                <AiFillFacebook />
+              </li>
+              <li>
+                <AiFillInstagram />
+              </li>
+              <li>
+                <AiFillTwitterSquare />
+              </li>
+            </ul>
+          </li>
         </ul>
 
         <ul className={styles.navIcons}>
@@ -53,6 +86,8 @@ export default function Navbar({ input, setInput }) {
             <AiOutlineSearch />
           </li>
         </ul>
+
+        <div className={styles.overlay}></div>
       </div>
     </nav>
   );
