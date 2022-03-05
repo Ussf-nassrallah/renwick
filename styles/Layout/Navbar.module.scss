@@ -7,6 +7,16 @@
 
   position: relative;
 
+  &Left {
+    display: flex;
+    align-items: center;
+
+    .barsIcon {
+      cursor: pointer;
+      font-size: 1.4rem;
+    }
+  }
+
   @include breakpoint-down(medium) {
     background-color: rgba($white-clr, $alpha: 0.9);
 
@@ -29,6 +39,11 @@
 
   &Logo {
     width: 180px;
+    cursor: pointer;
+
+    @include breakpoint-down(medium) {
+      margin-left: 0.5rem;
+    }
 
     @include breakpoint-down(small) {
       width: 140px;
@@ -38,6 +53,10 @@
   &Links {
     text-transform: uppercase;
     font-weight: $fw-light;
+
+    li {
+      cursor: pointer;
+    }
   }
 
   &Icons {
@@ -45,10 +64,6 @@
       font-size: 1.7rem;
       cursor: pointer;
       position: relative;
-
-      @include breakpoint-down(small) {
-        font-size: 1.5rem;
-      }
 
       span {
         position: absolute;
@@ -100,10 +115,14 @@
     transition: transform 700ms ease-in-out;
 
     li {
-      padding-bottom: 1rem;
-      margin-bottom: 1rem;
+      padding: 1rem;
       border-bottom: 1px solid #ccc;
       text-transform: capitalize;
+      cursor: pointer;
+
+      &:not(:last-child):hover {
+        text-decoration: underline;
+      }
 
       &.closeIcon {
         position: absolute;
@@ -113,6 +132,7 @@
         margin: 0;
         padding: 1rem;
         font-size: 1.5rem;
+        cursor: pointer;
       }
 
       &.socialLinks {
@@ -123,6 +143,7 @@
         bottom: 0;
         width: 100%;
         left: 0;
+        cursor: initial;
 
         ul {
           display: flex;
@@ -133,7 +154,13 @@
           li {
             border: none;
             font-size: 2rem;
-            opacity: 0.8;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 300ms ease;
+
+            &:hover {
+              opacity: 1;
+            }
           }
         }
       }

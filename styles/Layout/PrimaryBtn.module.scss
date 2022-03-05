@@ -1,14 +1,27 @@
 @import "../Helpers/helpers";
 
 .btnPrimary {
-    @include btn;
-    background-color: $primary-clr;
+  @include btn;
+  background-color: $primary-clr;
+  color: $white-clr;
+  border: 1px solid $primary-clr;
+
+  transition: all 300ms ease-in-out;
+
+  .icon {
+    margin-left: 0.5rem;
+    font-size: 1.5rem;
     color: $white-clr;
+    display: flex;
+  }
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid $primary-clr;
+    color: $primary-clr;
 
     .icon {
-        margin-left: 0.5rem;
-        font-size: 1.5rem;
-        color: $white-clr;
-        display: flex;
+      color: $primary-clr;
     }
+  }
 }

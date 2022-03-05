@@ -148,4 +148,21 @@
       }
     }
   }
+
+  &Now {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+
+    h2 {
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    height: 50vh;
+  }
 }

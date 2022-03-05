@@ -33,15 +33,17 @@ export default function Navbar({ input, setInput }) {
   return (
     <nav className={navbar ? `${styles.nav} ${styles.open}` : styles.nav}>
       <div className={styles.navContainer}>
-        <div className="hide-for-desktop" onClick={() => setNavbar(!navbar)}>
-          <FaBars className="bars-icon" />
-        </div>
-
-        <Link href="/">
-          <div className={styles.navLogo}>
-            <Image src={Logo} objectFit="contain" />
+        <div className={styles.navLeft}>
+          <div className="hide-for-desktop" onClick={() => setNavbar(!navbar)}>
+            <FaBars className={styles.barsIcon} />
           </div>
-        </Link>
+
+          <Link href="/">
+            <div className={styles.navLogo}>
+              <Image src={Logo} objectFit="contain" />
+            </div>
+          </Link>
+        </div>
 
         {/* nav links for desktop */}
         <ul className={`${styles.navLinks} hide-for-mobile`}>

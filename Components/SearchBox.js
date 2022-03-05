@@ -100,6 +100,7 @@ const SearchBox = ({ input, setInput }) => {
           <PrimaryBtn
             value="View All"
             icon={<IoMdArrowForward className="icon" />}
+            onClick={() => setInput(false)}
           />
         </div>
       </div>
