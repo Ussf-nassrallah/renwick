@@ -20,6 +20,7 @@ import styles from "../styles/Layout/Navbar.module.scss";
 
 export default function Navbar({ input, setInput }) {
   const cartItems = useSelector((state) => state.cart);
+  const [navbar, setNavbar] = useState(false);
 
   const navLinks = [
     { id: 1, text: "shop" },
@@ -30,9 +31,9 @@ export default function Navbar({ input, setInput }) {
   ];
 
   return (
-    <nav className={styles.nav}>
+    <nav className={navbar ? `${styles.nav} ${styles.open}` : styles.nav}>
       <div className={styles.navContainer}>
-        <div className="hide-for-desktop">
+        <div className="hide-for-desktop" onClick={() => setNavbar(!navbar)}>
           <FaBars className="bars-icon" />
         </div>
 
@@ -55,7 +56,7 @@ export default function Navbar({ input, setInput }) {
             <li key={navLink.id}>{navLink.text}</li>
           ))}
 
-          <li className={styles.closeIcon}>
+          <li className={styles.closeIcon} onClick={() => setNavbar(!navbar)}>
             <AiOutlineClose />
           </li>
 
