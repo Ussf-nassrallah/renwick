@@ -16,6 +16,8 @@ import styles from "../styles/Components/SearchBox.module.scss";
 const SearchBox = ({ input, setInput }) => {
   // Get Products from Redux Store
   const products = useSelector((state) => state.products);
+  // show and hide SearchBox Component
+  // const [serachBox, setSearchBox] = useState(false);
   // Input Value
   const [value, setValue] = useState(null);
   // Search Products
@@ -35,6 +37,11 @@ const SearchBox = ({ input, setInput }) => {
     };
     searchProducts();
   }, [value, products]);
+
+  const hideSearchBox = () => {
+    setInput(false);
+    setValue("");
+  };
 
   return (
     <div className={styles.search}>
@@ -96,11 +103,10 @@ const SearchBox = ({ input, setInput }) => {
           ))}
         </div>
 
-        <div className={styles.showBtn}>
+        <div className={styles.showBtn} onClick={hideSearchBox}>
           <PrimaryBtn
             value="View All"
             icon={<IoMdArrowForward className="icon" />}
-            onClick={() => setInput(false)}
           />
         </div>
       </div>
