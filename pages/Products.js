@@ -4,88 +4,151 @@ import Product from "../Components/Product";
 import styles from "../styles/ProductsPage.module.scss";
 
 export default function Products({ products }) {
-    const [input, setInput] = useState("");
-    const [checked, setChecked] = useState(false);
-    const [value, setValue] = useState("");
-    const [searchProducts, setSearchProducts] = useState([]);
+   const [list, setList] = useState(products);
+   const [categories, setCategories] = useState(getCategories());
+   const [input, setInput] = useState("");
+   const [value, setValue] = useState("");
 
-    let s = new Set();
+   // get Categories from products
+   function getCategories() {
+      let output = [];
+      let s = new Set();
 
-    for (let index = 0; index < products.length; index++) {
-        s.add(products[index].category);
-    }
+      for (let i = 0; i < products.length; i++) {
+         s.add(products[i].category);
+      }
+      let categories = Array.from(s);
 
-    const categories = Array.from(s);
+      for (let j = 0; j < categories.length; j++) {
+         output.push({ id: j + 1, label: categories[j], checked: false });
+      }
 
-    // filter products by categories
-    const filterProducts = (category) =>
-        products.filter((product) => product.category === category);
+      return output;
+   }
 
-    // filter products by keywords
-    const filterProductsbyStr = (str) =>
-        products.filter((product) => product.title.includes(str));
+   // handle change checked
+   const handleChangeChecked = (id) => {
+      const categoriesStateList = categories;
 
-    useEffect(() => {
-        setSearchProducts(filterProductsbyStr(input));
-    }, [input, products]);
+      const changeCheckedCategories = categoriesStateList.map((category) =>
+         category.id === id
+            ? { ...category, checked: !category.checked }
+            : category
+      );
 
-    return (
-        <section className={styles.productsPage}>
-            {/* Filter Panel */}
-            <div className={styles.productsSidebar}>
-                <div className={styles.search}>
-                    <div className={styles.searchIcon}>
-                        <AiOutlineSearch className={styles.icon} />
-                    </div>
+      setCategories(changeCheckedCategories);
+   };
 
-                    <input
-                        type="text"
-                        className={styles.searchInput}
-                        placeholder="Search By Keyword"
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                    />
-                </div>
+   const filterProducts = (category) =>
+      products.filter((product) => product.category === category);
 
-                <div className={styles.inputGroup}>
-                    <p className={styles.inputGroupLabel}>Categories</p>
-                    {categories.map((category, index) => (
-                        <div key={index} className={styles.inputGroupElement}>
-                            <label htmlFor={category}>
-                                {category}{" "}
-                                <span>
-                                    {`(${filterProducts(category).length})`}
-                                </span>
-                            </label>
+   // filter products by keywords
+   const filterProductsbyStr = (array, str) =>
+      array.filter((product) => product.title.includes(str));
 
-                            <input type="checkbox" />
-                        </div>
-                    ))}
-                </div>
+   // filter Products by Category
+   const applyFilter = () => {
+      let output = [];
+      let checkCategories = [];
+      let updatedList;
+
+      // check input field
+      for (let i = 0; i < categories.length; i++) {
+         if (categories[i].checked) {
+            checkCategories.push(categories[i]);
+         }
+      }
+
+      // filter products by category
+      for (let i = 0; i < checkCategories.length; i++) {
+         updatedList = products.filter(
+            (product) => product.category === checkCategories[i].label
+         );
+         output.push(...updatedList);
+      }
+
+      // updated products list
+      if (
+         output.length === 0 &&
+         checkCategories.length === 0 &&
+         input.length === 0
+      ) {
+         setList(products);
+      } else if (input.length > 0) {
+         setList(filterProductsbyStr(output, input));
+      } else if (checkCategories.length === 0) {
+         setList(filterProductsbyStr(products, input));
+      } else {
+         setList(output);
+      }
+   };
+
+   useEffect(() => {
+      applyFilter();
+   }, [input, products]);
+
+   return (
+      <section className={styles.productsPage}>
+         {/* Filter Panel */}
+         <div className={styles.productsSidebar}>
+            <div className={styles.search}>
+               <div className={styles.searchIcon}>
+                  <AiOutlineSearch className={styles.icon} />
+               </div>
+
+               <input
+                  type="text"
+                  className={styles.searchInput}
+                  placeholder="Search By Keyword"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+               />
             </div>
 
-            <div className={styles.productsContainer}>
-                <header>
-                    <h2>Search results for “{input}”</h2>
-                </header>
+            <div className={styles.inputGroup}>
+               <p className={styles.inputGroupLabel}>Categories</p>
+               {categories.map((category, index) => (
+                  <div key={index} className={styles.inputGroupElement}>
+                     <label htmlFor={category.label}>
+                        {category.label}{" "}
+                        <span>{`(${
+                           filterProducts(category.label).length
+                        })`}</span>
+                     </label>
 
-                <section className={styles.products}>
-                    {searchProducts.map((product) => (
-                        <Product key={product.id} props={product} />
-                    ))}
-                </section>
+                     <input
+                        type="checkbox"
+                        name={category.label}
+                        checked={category.checked}
+                        onChange={() => handleChangeChecked(category.id)}
+                     />
+                  </div>
+               ))}
             </div>
-        </section>
-    );
+         </div>
+
+         <div className={styles.productsContainer}>
+            <header>
+               <h2>Search results for “{input}”</h2>
+            </header>
+
+            <section className={styles.products}>
+               {list.map((product) => (
+                  <Product key={product.id} props={product} />
+               ))}
+            </section>
+         </div>
+      </section>
+   );
 }
 
 export const getStaticProps = async () => {
-    const res = await fetch("https://fakestoreapi.com/products");
-    const data = await res.json();
+   const res = await fetch("https://fakestoreapi.com/products");
+   const data = await res.json();
 
-    return {
-        props: {
-            products: data,
-        },
-    };
+   return {
+      props: {
+         products: data,
+      },
+   };
 };
