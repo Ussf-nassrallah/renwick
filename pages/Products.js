@@ -7,7 +7,7 @@ export default function Products({ products }) {
    const [list, setList] = useState(products);
    const [categories, setCategories] = useState(getCategories());
    const [input, setInput] = useState("");
-   const [value, setValue] = useState("");
+   let checkCategories = [];
 
    // get Categories from products
    function getCategories() {
@@ -49,7 +49,6 @@ export default function Products({ products }) {
    // filter Products by Category
    const applyFilter = () => {
       let output = [];
-      let checkCategories = [];
       let updatedList;
 
       // check input field
@@ -67,25 +66,22 @@ export default function Products({ products }) {
          output.push(...updatedList);
       }
 
-      // updated products list
-      if (
-         output.length === 0 &&
-         checkCategories.length === 0 &&
-         input.length === 0
-      ) {
-         setList(products);
-      } else if (input.length > 0) {
-         setList(filterProductsbyStr(output, input));
-      } else if (checkCategories.length === 0) {
-         setList(filterProductsbyStr(products, input));
+      if (checkCategories.length === 0) {
+         output = [...products].filter((product) =>
+            product.title.includes(input)
+         );
+         setList(output);
       } else {
+         output = [...output].filter((product) =>
+            product.title.includes(input)
+         );
          setList(output);
       }
    };
 
    useEffect(() => {
       applyFilter();
-   }, [input, products]);
+   }, [input, products, categories]);
 
    return (
       <section className={styles.productsPage}>
