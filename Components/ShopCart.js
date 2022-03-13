@@ -17,17 +17,18 @@ const ShopCart = () => {
 
       let subtotal = total.reduce(reducer);
 
-      return parseInt(subtotal.toFixed(2));
+      return subtotal.toFixed(2);
    };
 
    const shipping = (total, num) => {
       let output = 0;
+      let totalNumber = parseInt(total);
 
       if (total > 99) {
          return (output = +total);
       } else {
-         output = total + num;
-         return parseInt(output.toFixed(2));
+         output = parseInt(total) + num;
+         return output;
       }
    };
 

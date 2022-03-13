@@ -41,23 +41,21 @@ function rootReducer(state = initialState, { type, payload }) {
       case actionTypes.ADJUST_ITEM_QTY:
          return {
             ...state,
-            cart: state.cart.map((item) =>
-               item.id === action.payload.id
+            cart: state.cart.map((product) =>
+               product.id === payload.id
                   ? {
-                       ...item,
-                       qty: +action.payload.qty + 1,
-                       total: (item.qty + 1) * item.price,
+                       ...product,
+                       qty: payload.qty,
+                       total: payload.qty * product.price,
                     }
-                  : item
+                  : product
             ),
          };
       // Remove Product from Cart
       case actionTypes.REMOVE_FROM_CART:
          return {
             ...state,
-            cart: state.cart.filter(
-               (product) => product.id !== action.payload.id
-            ),
+            cart: state.cart.filter((product) => product.id !== payload.id),
          };
       default:
          return state;

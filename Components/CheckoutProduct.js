@@ -1,50 +1,11 @@
-import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import * as actioneTypes from "../Store/actions/types";
 import styles from "../styles/Checkout.module.scss";
 import { useDispatch } from "react-redux";
+import productQty from "../Store/actions/productQty";
+import removeFromCart from "../Store/actions/removeFromCart";
 
 const CheckoutProduct = ({ product }) => {
-   // const [input, setInput] = useState(product.qty);
    const dispatch = useDispatch();
-   let counter = 1;
-
-   // useEffect(() => {
-   //    dispatch({
-   //       type: actioneTypes.ADJUST_ITEM_QTY,
-   //       payload: {
-   //          id: product.id,
-   //          qty: counter,
-   //       },
-   //    });
-   // }, [counter]);
-
-   console.log(counter);
-
-   const addProduct = () => {
-      counter++;
-
-      dispatch({
-         type: actioneTypes.ADJUST_ITEM_QTY,
-         payload: {
-            id: product.id,
-            qty: counter,
-         },
-      });
-   };
-
-   const removeProduct = () => {
-      setCounter(counter - 1);
-   };
-
-   const removeFromCart = () => {
-      dispatch({
-         type: actioneTypes.REMOVE_FROM_CART,
-         payload: {
-            id: product.id,
-         },
-      });
-   };
 
    return (
       <tr key={product.id}>
@@ -59,21 +20,39 @@ const CheckoutProduct = ({ product }) => {
             <div className={styles.checkoutProductInfo}>
                <h4 className={styles.title}>{product.title}</h4>
                <p className={styles.category}>{product.category}</p>
-               <p onClick={removeFromCart}>remove</p>
+               <p onClick={() => dispatch(removeFromCart(product.id))}>
+                  remove
+               </p>
             </div>
          </td>
 
          <td>
-            {/* <input
-               id="number"
-               type="number"
-               value={input}
-               onChange={onChangeHandler}
-            /> */}
             <div className={styles.counter}>
-               <button onClick={addProduct}>+</button>
-               <p className={styles.counterValue}>{counter}</p>
-               <button onClick={removeProduct}>-</button>
+               <button
+                  onClick={() =>
+                     dispatch(
+                        productQty({
+                           id: product.id,
+                           updatedQty: product.qty + 1,
+                        })
+                     )
+                  }
+               >
+                  +
+               </button>
+               <p>{product.qty}</p>
+               <button
+                  onClick={() =>
+                     dispatch(
+                        productQty({
+                           id: product.id,
+                           updatedQty: product.qty - 1,
+                        })
+                     )
+                  }
+               >
+                  -
+               </button>
             </div>
          </td>
 
@@ -81,7 +60,7 @@ const CheckoutProduct = ({ product }) => {
             <p className={styles.price}>$ {product.price}</p>
          </td>
 
-         <td>$ {product.price * counter}</td>
+         <td>$ {(product.price * product.qty).toFixed(2)}</td>
       </tr>
    );
 };

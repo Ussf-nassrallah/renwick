@@ -1,168 +1,190 @@
 @import "./Helpers/helpers";
 
 .shop {
-  .flex {
-    @include container;
+   .flex {
+      @include container;
 
-    display: flex;
-    padding-top: 4rem !important;
-    padding-bottom: 4rem;
+      display: flex;
+      padding-top: 4rem !important;
+      padding-bottom: 4rem;
 
-    @include breakpoint-down(medium) {
+      @include breakpoint-down(medium) {
+         flex-direction: column;
+         padding-bottom: 0;
+      }
+
+      .shop {
+         &Products {
+            h3 {
+               border-bottom: 1px solid #ccc;
+               padding: 1rem 0;
+               font-size: $text-xl;
+               font-weight: $fw-bold;
+            }
+
+            flex: 1;
+            background-color: $white-clr;
+
+            &Table {
+               width: 100%;
+               border-collapse: collapse;
+
+               .checkoutProduct {
+                  display: flex;
+                  padding: 1rem 0;
+                  width: 98%;
+
+                  img {
+                     width: 100% !important;
+                  }
+
+                  &Info {
+                     margin-left: 1rem;
+
+                     .title {
+                        font-size: $text-base;
+                     }
+
+                     .category {
+                        margin: 0.5rem 0;
+                        text-transform: capitalize;
+                     }
+                  }
+               }
+
+               tbody {
+                  text-align: left;
+
+                  th {
+                     padding-top: 16px;
+                     padding-bottom: 16px;
+                     text-align: left;
+                     text-transform: uppercase;
+                     font-size: $text-base;
+                     font-weight: $fw-medium;
+                     border-bottom: 1px solid #ccc;
+                  }
+
+                  tr {
+                     border-bottom: 1px solid #ccc;
+
+                     td:not(:first-child) {
+                        width: calc(50% / 3);
+                     }
+
+                     td {
+                        input {
+                           width: 70% !important;
+                           all: initial;
+                           border: 1px solid $primary-clr;
+                           padding: 0.3rem;
+                        }
+                     }
+                  }
+               }
+            }
+         }
+
+         &Cart {
+            background-color: $white-clr;
+            padding: 1rem;
+            width: 27%;
+            margin-left: 1rem;
+
+            @include breakpoint-down(medium) {
+               width: 100%;
+               margin-left: 0;
+            }
+
+            h3 {
+               font-size: $text-lg;
+               font-weight: $fw-bold;
+               padding: 1rem 0;
+               margin-bottom: 1rem;
+            }
+
+            &Row {
+               opacity: 0.7;
+
+               &Item {
+                  opacity: 0.7;
+                  font-weight: 400;
+               }
+            }
+
+            &TotalRow {
+               font-weight: $fw-bold;
+               border-top: 1px solid lightgray;
+               padding-top: 1rem;
+            }
+
+            &Row,
+            &TotalRow {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               padding-bottom: 1rem;
+               text-transform: capitalize;
+            }
+
+            .checkoutBtn {
+               @include btn;
+               background-color: #111;
+               color: #fff;
+               width: 90%;
+               font-size: 0.8rem;
+               justify-content: center;
+               margin-top: 1rem;
+               border: 1px solid #111;
+               transition: all 500ms ease;
+
+               &:hover,
+               &:focus {
+                  background-color: transparent;
+                  color: #111;
+                  border: 1px solid #111;
+               }
+            }
+         }
+      }
+   }
+
+   &Now {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       flex-direction: column;
-      padding-bottom: 0;
-    }
 
-    .shop {
-      &Products {
-        h3 {
-          border-bottom: 1px solid #ccc;
-          padding: 1rem 0;
-          font-size: $text-xl;
-          font-weight: $fw-bold;
-        }
-
-        flex: 1;
-        background-color: $white-clr;
-
-        &Table {
-          width: 100%;
-          border-collapse: collapse;
-
-          .checkoutProduct {
-            display: flex;
-            padding: 1rem 0;
-            width: 98%;
-
-            img {
-              width: 100% !important;
-            }
-
-            &Info {
-              margin-left: 1rem;
-
-              .title {
-                font-size: $text-base;
-              }
-
-              .category {
-                margin: 0.5rem 0;
-                text-transform: capitalize;
-              }
-            }
-          }
-
-          tbody {
-            text-align: left;
-
-            th {
-              padding-top: 16px;
-              padding-bottom: 16px;
-              text-align: left;
-              text-transform: uppercase;
-              font-size: $text-base;
-              font-weight: $fw-medium;
-              border-bottom: 1px solid #ccc;
-            }
-
-            tr {
-              border-bottom: 1px solid #ccc;
-
-              td:not(:first-child) {
-                width: calc(50% / 3);
-              }
-
-              td {
-                input {
-                  width: 70% !important;
-                  all: initial;
-                  border: 1px solid $primary-clr;
-                  padding: 0.3rem;
-                }
-              }
-            }
-          }
-        }
+      h2 {
+         text-transform: uppercase;
+         font-weight: 500;
+         font-size: 2rem;
+         margin-bottom: 1rem;
       }
 
-      &Cart {
-        background-color: $white-clr;
-        padding: 1rem;
-        width: 27%;
-        margin-left: 1rem;
+      height: 50vh;
+   }
+}
 
-        @include breakpoint-down(medium) {
-          width: 100%;
-          margin-left: 0;
-        }
+.counter {
+   display: flex;
+   border: 1px solid #ccc;
+   border-radius: 6px;
+   justify-content: space-between;
+   width: 100px;
+   align-items: center;
+}
 
-        h3 {
-          font-size: $text-lg;
-          font-weight: $fw-bold;
-          padding: 1rem 0;
-          margin-bottom: 1rem;
-        }
+.counter button {
+   all: unset;
+   opacity: 0.5;
+   font-size: 1.3rem;
+   padding: 0 0.5rem;
+   cursor: pointer;
+}
 
-        &Row {
-          opacity: 0.7;
-
-          &Item {
-            opacity: 0.7;
-            font-weight: 400;
-          }
-        }
-
-        &TotalRow {
-          font-weight: $fw-bold;
-          border-top: 1px solid lightgray;
-          padding-top: 1rem;
-        }
-
-        &Row,
-        &TotalRow {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding-bottom: 1rem;
-          text-transform: capitalize;
-        }
-
-        .checkoutBtn {
-          @include btn;
-          background-color: #111;
-          color: #fff;
-          width: 90%;
-          font-size: 0.8rem;
-          justify-content: center;
-          margin-top: 1rem;
-          border: 1px solid #111;
-          transition: all 500ms ease;
-
-          &:hover,
-          &:focus {
-            background-color: transparent;
-            color: #111;
-            border: 1px solid #111;
-          }
-        }
-      }
-    }
-  }
-
-  &Now {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-
-    h2 {
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    height: 50vh;
-  }
+.counter p {
+   font-size: 0.9rem;
+   opacity: 0.5;
 }
