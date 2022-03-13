@@ -7,6 +7,10 @@ import removeFromCart from "../Store/actions/removeFromCart";
 const CheckoutProduct = ({ product }) => {
    const dispatch = useDispatch();
 
+   if (product.qty === 0) {
+      dispatch(removeFromCart(product.id));
+   }
+
    return (
       <tr key={product.id}>
          <td className={styles.checkoutProduct}>

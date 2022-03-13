@@ -15,14 +15,14 @@ const ShopCart = () => {
          total.push(shopProducts[index].total);
       }
 
-      let subtotal = total.reduce(reducer);
-
-      return subtotal.toFixed(2);
+      if (total.length !== 0) {
+         let subtotal = total.reduce(reducer);
+         return subtotal.toFixed(2);
+      }
    };
 
    const shipping = (total, num) => {
       let output = 0;
-      let totalNumber = parseInt(total);
 
       if (total > 99) {
          return (output = +total);
