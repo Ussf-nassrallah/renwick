@@ -63,6 +63,7 @@ export default function Products({ products }) {
          updatedList = products.filter(
             (product) => product.category === checkCategories[i].label
          );
+
          output.push(...updatedList);
       }
 
