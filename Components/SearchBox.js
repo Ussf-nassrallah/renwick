@@ -17,7 +17,7 @@ const SearchBox = ({ input, setInput }) => {
    // Get Products from Redux Store
    const products = useSelector((state) => state.products);
    // Input Value
-   const [value, setValue] = useState(null);
+   const [value, setValue] = useState("");
    // Search Products
    const [searchProducts, setSearchProducts] = useState([]);
 
