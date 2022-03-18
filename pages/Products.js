@@ -131,7 +131,11 @@ export default function Products({ products }) {
 
             <section className={styles.products}>
                {list.map((product) => (
-                  <Product key={product.id} props={product} />
+                  <Product
+                     key={product.id}
+                     props={product}
+                     className={styles.product}
+                  />
                ))}
             </section>
          </div>

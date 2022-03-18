@@ -76,6 +76,16 @@
          padding: 2rem 1rem;
       }
 
+      @include breakpoint-down(small) {
+         padding: 1rem 0;
+      }
+
+      h2 {
+         @include breakpoint-down(small) {
+            padding-left: 1rem;
+         }
+      }
+
       .products {
          margin-top: 3rem;
          display: grid;
@@ -85,6 +95,29 @@
          @include breakpoint-down(medium) {
             grid-template-columns: repeat(2, 1fr);
          }
+
+         @include breakpoint-down(small) {
+            gap: 0rem;
+         }
+
+         > * {
+            @include breakpoint-down(small) {
+               height: initial !important;
+            }
+         }
+
+         > div {
+            @include breakpoint-down(small) {
+               margin-bottom: 1rem;
+            }
+         }
+
+         // .product {
+         //    @include breakpoint-down(medium) {
+         //       height: initial !important;
+         //       padding: 0 !important;
+         //    }
+         // }
       }
    }
 }
