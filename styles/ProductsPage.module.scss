@@ -85,16 +85,6 @@
          @include breakpoint-down(medium) {
             grid-template-columns: repeat(2, 1fr);
          }
-
-         .imgDiv {
-            width: 150px;
-            height: 150px;
-         }
-
-         // @include breakpoint-down(small) {
-         //   grid-template-columns: repeat(2, 1fr);
-         //   gap: 1rem;
-         // }
       }
    }
 }

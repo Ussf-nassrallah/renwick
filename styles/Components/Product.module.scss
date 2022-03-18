@@ -1,92 +1,98 @@
 @import "../Helpers/helpers";
 
 .product {
-  background: #fff;
-  position: relative;
-  padding: 1rem;
+   background: #fff;
+   position: relative;
+   padding: 1rem;
 
-  min-width: 250px;
-  width: 300px;
-  height: 420px;
+   min-width: 250px;
+   width: 300px;
+   height: 420px;
 
-  @include breakpoint-down(small) {
-    height: 350px;
-    padding: 0 0.5rem !important;
-  }
+   @include breakpoint-down(small) {
+      height: 350px;
+      padding: 0 0.5rem !important;
+   }
 
-  @include breakpoint-down(medium) {
-    width: initial;
-    min-width: initial;
-    padding: 0 1rem;
-  }
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  .category {
-    font-size: $text-sm;
-    font-weight: $fw-regular;
-    text-transform: capitalize;
-
-    display: flex;
-    justify-content: flex-end;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 10;
-
-    @include breakpoint-down(small) {
-      display: none;
-    }
-  }
-
-  .title {
-    margin-top: 1rem;
-    font-weight: $fw-regular;
-    line-height: 1.6;
-    opacity: 0.8;
-
-    @include breakpoint-down(small) {
-      font-size: 0.8rem;
-    }
-  }
-
-  .topp {
-    color: #ddbc00;
-    text-transform: capitalize;
-    font-size: $text-sm;
-    font-weight: $fw-bold;
-    text-transform: capitalize;
-    margin-top: 0.4rem;
-  }
-
-  .rating {
-    display: flex;
-    margin: 0.4rem 0;
-
-    .icon {
-      font-size: 1.1rem;
-      color: #ddbc00;
-    }
-
-    > * + * {
-      margin-left: 0.2rem;
-    }
-  }
-
-  .price {
-    font-size: $text-xl;
-    font-weight: $fw-medium;
-  }
-
-  button {
-    font-size: $text-xs;
-    margin-top: 1rem;
-
-    @include breakpoint-down(medium) {
+   @include breakpoint-down(medium) {
       width: initial;
-    }
-  }
+      min-width: initial;
+      padding: 0 1rem;
+   }
+
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+
+   .category {
+      font-size: $text-sm;
+      font-weight: $fw-regular;
+      text-transform: capitalize;
+
+      display: flex;
+      justify-content: flex-end;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 10;
+
+      @include breakpoint-down(small) {
+         display: none;
+      }
+   }
+
+   .title {
+      margin-top: 1rem;
+      font-weight: $fw-regular;
+      line-height: 1.6;
+      opacity: 0.8;
+
+      @include breakpoint-down(small) {
+         font-size: 0.8rem;
+      }
+   }
+
+   .topp {
+      color: #ddbc00;
+      text-transform: capitalize;
+      font-size: $text-sm;
+      font-weight: $fw-bold;
+      text-transform: capitalize;
+      margin-top: 0.4rem;
+   }
+
+   .rating {
+      display: flex;
+      margin: 0.4rem 0;
+
+      .icon {
+         font-size: 1.1rem;
+         color: #ddbc00;
+      }
+
+      > * + * {
+         margin-left: 0.2rem;
+      }
+   }
+
+   .price {
+      font-size: $text-xl;
+      font-weight: $fw-medium;
+   }
+
+   button {
+      font-size: $text-xs;
+      margin-top: 1rem;
+
+      @include breakpoint-down(medium) {
+         width: initial;
+      }
+   }
+
+   .imgDiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
 }
