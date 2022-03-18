@@ -19,6 +19,7 @@ const CheckoutProduct = ({ product }) => {
                objectFit="contain"
                width={200}
                height={200}
+               alt=""
             />
 
             <div className={styles.checkoutProductInfo}>

@@ -12,13 +12,6 @@ import Modal from "../Components/Modal";
 function Home({ products }) {
    const dispatch = useDispatch();
 
-   // function useWindowSize() {
-   //   const [size, setSize] = useState(window.innerWidth);
-   //   console.log(size);
-   // }
-
-   // useWindowSize();
-
    useEffect(() => {
       dispatch(setProducts(products));
    }, []);

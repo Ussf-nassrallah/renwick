@@ -18,6 +18,7 @@ const MobileCheckoutProduct = ({ product }) => {
             objectFit="contain"
             width={170}
             height={170}
+            alt=""
          />
 
          <div className={styles.productInfo}>

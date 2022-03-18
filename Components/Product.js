@@ -34,7 +34,7 @@ export default function Product({ props }) {
       <div className={styles.product}>
          <p className={styles.category}>{category}</p>
 
-         <Link href="/product/[id]" as={`/product/${id}`}>
+         <Link href="/product/[id]" as={`/product/${id}`} passHref>
             <div className={styles.imgDiv}>
                <Image
                   src={image}
@@ -42,6 +42,7 @@ export default function Product({ props }) {
                   width={200}
                   height={200}
                   className={styles.img}
+                  alt=""
                />
             </div>
          </Link>
