@@ -40,7 +40,8 @@ export default function Navbar({ input, setInput }) {
 
           <Link href="/">
             <div className={styles.navLogo}>
-              <Image src={Logo} objectFit="contain" />
+              {/* <Image src={Logo} objectFit="contain" /> */}
+              Renwick<span>.</span>
             </div>
           </Link>
         </div>

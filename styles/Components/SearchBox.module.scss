@@ -14,7 +14,7 @@
         width: 100%;
 
         position: fixed;
-        z-index: 150;
+        z-index: 400;
         top: 0;
 
         transition: transform 500ms ease;
@@ -45,7 +45,7 @@
     &Items {
         position: fixed;
         top: 4rem;
-        z-index: 149;
+        z-index: 600;
 
         background-color: #fff;
         padding: 3rem 2rem;

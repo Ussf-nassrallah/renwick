@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;1,400&display=swap');
 @import "./Helpers/helpers";
 
 *,
@@ -13,7 +13,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Raleway', sans-serif;
   overflow-x: hidden;
 }
 
@@ -47,6 +47,14 @@ button {
 .bars-icon {
   font-size: 1.4rem;
   display: flex;
+}
+
+.pf-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
 }
 
 // Slider

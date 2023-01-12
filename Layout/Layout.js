@@ -12,10 +12,12 @@ const Layout = ({ children }) => {
   return (
     <>
       <SearchBox input={input} setInput={setInput} />
+
       <header>
         <Upperbar />
         <Navbar input={input} setInput={setInput} />
       </header>
+      
       <main>{children}</main>
       <Footer />
     </>

@@ -5,10 +5,11 @@
     padding: 2rem 0;
 
     h2 {
-        font-weight: $fw-medium;
+        font-weight: $fw-bold;
         font-size: $text-xl;
-        text-transform: uppercase;
-        margin-bottom: 1.5rem;
+        text-transform: capitalize;
+        margin-bottom: 3.5rem;
+        text-align: center;
 
         @include breakpoint-down(small) {
             text-align: center;
