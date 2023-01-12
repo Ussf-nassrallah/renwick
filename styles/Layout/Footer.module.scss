@@ -1,15 +1,17 @@
 @import "../Helpers/helpers";
 
 .footer {
-   background-color: #333;
+   background-color: $tertiary-clr;
    margin-top: 4rem;
 
    &Container:nth-child(1) {
-      background-color: #222;
+      background-color: $tertiary-clr;
    }
 
    &ContactInfo {
       @include container;
+      border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+
       padding: 2rem 0;
 
       display: flex;
@@ -90,6 +92,7 @@
 
    &Container:nth-child(2) {
       @include container;
+      border-bottom: 1px solid rgb(255, 255, 255, 0.5);
 
       display: flex;
       justify-content: space-between;
@@ -126,7 +129,6 @@
       &InputDiv {
          position: relative;
          border-bottom: 1px solid #fff;
-         opacity: 0.5;
 
          .icon {
             position: absolute;
@@ -198,7 +200,7 @@
 
    &Container:nth-child(3) {
       padding: 2rem;
-      background-color: #222;
+      background-color: $tertiary-clr;
       text-align: center;
       color: #fff;
    }
